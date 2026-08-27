@@ -1,1 +1,863 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyce Mary Nails | Manicure</title>
+
+    <style>
+        /* =========================
+            CONFIGURAÇÕES GERAIS
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            background: #D8B4FE; /* Lilás Marcante */
+            color: #222;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+            FUNDO ANIMADO - BOLHAS
+        ========================== */
+        .bolhas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .bolhas span {
+            position: absolute;
+            bottom: -100px;
+            display: block;
+            border-radius: 50%;
+            background: rgba(147, 51, 234, 0.35); /* Bolhas em tom Lilás/Roxo */
+            border: 2px solid rgba(147, 51, 234, 0.5);
+            box-shadow: 0 0 10px rgba(147, 51, 234, 0.2);
+            animation: subirBolha linear infinite;
+        }
+
+        .bolhas span:nth-child(1) { left: 5%; width: 25px; height: 25px; animation-duration: 10s; animation-delay: 0s; }
+        .bolhas span:nth-child(2) { left: 18%; width: 45px; height: 45px; animation-duration: 14s; animation-delay: 2s; }
+        .bolhas span:nth-child(3) { left: 30%; width: 30px; height: 30px; animation-duration: 11s; animation-delay: 4s; }
+        .bolhas span:nth-child(4) { left: 45%; width: 55px; height: 55px; animation-duration: 16s; animation-delay: 1s; }
+        .bolhas span:nth-child(5) { left: 58%; width: 25px; height: 25px; animation-duration: 10s; animation-delay: 6s; }
+        .bolhas span:nth-child(6) { left: 70%; width: 40px; height: 40px; animation-duration: 13s; animation-delay: 3s; }
+        .bolhas span:nth-child(7) { left: 82%; width: 60px; height: 60px; animation-duration: 18s; animation-delay: 0.5s; }
+        .bolhas span:nth-child(8) { left: 92%; width: 35px; height: 35px; animation-duration: 12s; animation-delay: 5s; }
+
+        @keyframes subirBolha {
+            0% {
+                transform: translateY(0) translateX(0) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50vh) translateX(40px) scale(1.1);
+            }
+            100% {
+                transform: translateY(-115vh) translateX(-40px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        header, section, footer, .topo {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =========================
+            BARRA SUPERIOR
+        ========================== */
+        .topo {
+            background: #4c1d95; /* Roxo escuro para combinar */
+            color: white;
+            padding: 10px 6%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        /* =========================
+            MENU & CABEÇALHO
+        ========================== */
+        header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-family: cursive;
+            color: #7e22ce;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .logo span {
+            display: block;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #333;
+            margin-top: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #7e22ce;
+        }
+
+        .botao {
+            background: #7e22ce;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background: #581c87;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+            HERO
+        ========================== */
+        .hero {
+            min-height: 520px;
+            background: linear-gradient(110deg, #E9D5FF, #FAF5FF); /* Gradiente Lilás */
+            display: flex;
+            align-items: center;
+            padding: 70px 7%;
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text small {
+            color: #7e22ce;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: 60px;
+            line-height: 1.1;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: #7e22ce;
+            font-family: cursive;
+            font-weight: normal;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            width: 50%;
+            height: 420px;
+            border-radius: 0 0 0 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* =========================
+            SEÇÕES GERAIS
+        ========================== */
+        section {
+            padding: 80px 7%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo small {
+            color: #7e22ce;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .titulo h2 {
+            font-family: Georgia, serif;
+            font-size: 40px;
+            margin-top: 10px;
+        }
+
+        .linha {
+            width: 60px;
+            height: 3px;
+            background: #7e22ce;
+            margin: 15px auto;
+        }
+
+        /* =========================
+            SERVIÇOS
+        ========================== */
+        .servicos {
+            background: #F3E8FF; /* Lilás suave */
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            border: 1px solid #d8b4fe;
+            padding: 20px 15px;
+            text-align: center;
+            border-radius: 12px;
+            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(126, 34, 206, 0.15);
+        }
+
+        .servico-foto {
+            width: 100%;
+            height: 380px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            background: #faf5ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .servico-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .icone {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+            GALERIA
+        ========================== */
+        .galeria {
+            background: #E9D5FF; /* Lilás médio */
+        }
+
+        .fotos {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .foto {
+            height: 230px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #c084fc;
+        }
+
+        .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .foto:hover img {
+            transform: scale(1.06);
+        }
+
+        /* =========================
+            SOBRE MIM
+        ========================== */
+        .sobre {
+            display: flex;
+            align-items: center;
+            gap: 70px;
+            background: #F3E8FF; /* Lilás suave */
+        }
+
+        .sobre-img {
+            width: 45%;
+            height: 450px;
+            border-radius: 0 100px 0 0;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .sobre-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .sobre-text {
+            width: 55%;
+        }
+
+        .sobre-text small {
+            color: #7e22ce;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .sobre-text h2 {
+            font-family: Georgia, serif;
+            font-size: 42px;
+            margin: 15px 0;
+        }
+
+        .sobre-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+            DEPOIMENTOS
+        ========================== */
+        .depoimentos {
+            background: #E9D5FF; /* Lilás médio */
+        }
+
+        .depoimento-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .depoimento {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #d8b4fe;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .depoimento .aspas {
+            color: #7e22ce;
+            font-size: 40px;
+            line-height: 20px;
+        }
+
+        .depoimento p {
+            line-height: 1.7;
+            color: #555;
+            margin: 15px 0;
+        }
+
+        .estrelas {
+            color: #7e22ce;
+            margin-top: 10px;
+        }
+
+        /* =========================
+            AGENDAMENTO
+        ========================== */
+        .agendamento {
+            background: linear-gradient(135deg, #4c1d95, #6b21a8);
+            color: white;
+            text-align: center;
+        }
+
+        .agendamento h2 {
+            font-family: Georgia, serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .agendamento p {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .form-agendamento {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        .grupo-campo {
+            margin-bottom: 20px;
+        }
+
+        .grupo-campo label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .grupo-campo input, 
+        .grupo-campo select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            outline: none;
+            background: white;
+            color: #333;
+        }
+
+        .grupo-campo input:focus, 
+        .grupo-campo select:focus {
+            border-color: #c084fc;
+            box-shadow: 0 0 5px rgba(192, 132, 252, 0.5);
+        }
+
+        .botao-branco {
+            width: 100%;
+            background: white;
+            color: #6b21a8;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .botao-branco:hover {
+            background: #f3e8ff;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+            RODAPÉ
+        ========================== */
+        footer {
+            background: #2e1065;
+            color: white;
+            padding: 60px 7% 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        footer h3 {
+            margin-bottom: 20px;
+        }
+
+        footer p, footer a {
+            color: #ddd;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .logo-footer {
+            font-family: cursive;
+            font-size: 35px;
+            color: #c084fc;
+        }
+
+        .copyright {
+            border-top: 1px solid #4c1d95;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        /* =========================
+            RESPONSIVIDADE
+        ========================== */
+        @media (max-width: 1000px) {
+            nav { gap: 15px; }
+            .cards { grid-template-columns: repeat(2, 1fr); }
+            .fotos { grid-template-columns: repeat(3, 1fr); }
+            .hero, .sobre { flex-direction: column; }
+            .hero-text, .hero-image, .sobre-img, .sobre-text { width: 100%; }
+            .hero-image { margin-top: 40px; }
+            .depoimento-container { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 700px) {
+            .topo { display: none; }
+            header { height: auto; padding: 20px; flex-direction: column; gap: 20px; }
+            nav { flex-wrap: wrap; justify-content: center; }
+            .hero h1 { font-size: 42px; }
+            .cards, .fotos, .footer-container { grid-template-columns: 1fr; }
+            section { padding: 60px 25px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BOLHAS FLUTUANTES -->
+    <div class="bolhas" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Barra Superior -->
+    <div class="topo">
+        <span>📍 Lagoa do Carro - PE</span>
+        <span>✨ Realçando sua beleza até a ponta dos dedos!</span>
+        <span>📱 (81) 98986-7314</span>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            Joyce Mary ♡
+            <span>MANICURE E PEDICURE</span>
+            <span>DESIGN DE SOBRANCELHAS</span>
+            <span>SPA DOS PÉS</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">INÍCIO</a>
+            <a href="#sobre">SOBRE MIM</a>
+            <a href="#servicos">SERVIÇOS</a>
+            <a href="#galeria">GALERIA</a>
+            <a href="#depoimentos">DEPOIMENTOS</a>
+            <a href="#agendamento">AGENDAR</a>
+            <a href="#contato">CONTATO</a>
+        </nav>
+
+        <a href="#agendamento" class="botao">
+            📅 AGENDAR HORÁRIO
+        </a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-text">
+            <small>CUIDADO, ESTILO E ELEGÂNCIA ♡</small>
+            <h1>Suas unhas, <span>sua identidade!</span></h1>
+            <p>Manicure profissional para deixar suas unhas ainda mais lindas, cuidadas e saudáveis.</p>
+            <a href="#agendamento" class="botao">📅 AGENDAR HORÁRIO</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=85" alt="Unhas feitas por Joyce Mary">
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="servicos" id="servicos">
+        <div class="titulo">
+            <small>SERVIÇOS</small>
+            <h2>Conheça meus serviços</h2>
+            <div class="linha"></div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="servico-foto"><img src="manicure.jpeg" alt="Manicure Tradicional"></div>
+                <h3>Manicure Tradicional</h3>
+                <p>Cuidados completos para unhas saudáveis e bonitas.</p>
+            </div>
+
+            <div class="card">
+                <div class="servico-foto"><img src="esmaltação.jpeg" alt="Esmaltação em Gel"></div>
+                <h3>Esmaltação em Gel</h3>
+                <p>Brilho intenso e longa duração para suas unhas.</p>
+            </div>
+
+            <div class="card">
+                <div class="servico-foto"><img src="alongamento.jpeg" alt="Alongamento"></div>
+                <h3>Alongamento</h3>
+                <p>Unhas longas, resistentes e com acabamento perfeito.</p>
+            </div>
+
+            <div class="card">
+                <div class="servico-foto"><img src="nail-designer.jpeg" alt="Nail Designer"></div>
+                <h3>Nail Designer</h3>
+                <p>Decorações exclusivas para todos os estilos.</p>
+            </div>
+
+            <div class="card">
+                <div class="servico-foto"><img src="pedicure.jpeg" alt="Pedicure "></div>
+                <h3>Pedicure</h3>
+                <p>Pés lindos, macios e bem cuidados.</p>
+            </div>
+
+            <div class="card">
+                <div class="servico-foto"><img src="designer.jpeg" alt="Designer de Sombrancelha"></div>
+                <h3>Designer de Sombrancelha</h3>
+                <p>Pés lindos, macios e bem cuidados.</p>
+            </div>
+
+            <div class="card">
+                <div class="servico-foto"><img src="spa.jpeg" alt="Spa dos Pés "></div>
+                <h3>Spa dos Pés</h3>
+                <p>Renovação, esfoliação profunda e relaxamento para seus pés.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section class="galeria" id="galeria">
+        <div class="titulo">
+            <small>GALERIA</small>
+            <h2>Veja alguns trabalhos</h2>
+            <div class="linha"></div>
+        </div>
+
+        <div class="fotos">
+            <div class="foto"><img src="trabalho1.jpeg" alt="Trabalho 3"></div>
+            <div class="foto"><img src="trabalho2.jpeg" alt="Trabalho 2"></div>
+            <div class="foto"><img src="trabalho3.jpeg" alt="Trabalho 1"></div>
+            <div class="foto"><img src="trabalho4.jpeg" alt="Trabalho 4"></div>
+            <div class="foto"><img src="trabalho5.jpeg" alt="Trabalho 5"></div>
+        </div>
+    </section>
+
+    <!-- Sobre Mim -->
+    <section class="sobre" id="sobre">
+        <div class="sobre-img">
+            <img src="foto-joyce.jpg" alt="Joyce Mary - Nail Designer">
+        </div>
+
+        <div class="sobre-text">
+            <small>SOBRE MIM</small>
+            <h2>Prazer, eu sou a Joyce! 💗</h2>
+            <p>Sou manicure apaixonada pelo que faço! Meu objetivo é proporcionar uma experiência especial para cada cliente.</p>
+            <p>Trabalho com cuidado, higiene, dedicação e atenção aos detalhes para deixar suas unhas e pés exatamente como você imaginou.</p>
+            <a href="#agendamento" class="botao">AGENDAR UM HORÁRIO</a>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="depoimentos" id="depoimentos">
+        <div class="titulo">
+            <small>DEPOIMENTOS</small>
+            <h2>O que minhas clientes dizem</h2>
+            <div class="linha"></div>
+        </div>
+
+        <div class="depoimento-container">
+            <div class="depoimento">
+                <div class="aspas">“</div>
+                <p>Atendimento impecável e resultado maravilhoso! Minhas unhas ficaram perfeitas.</p>
+                <strong>— Evellyn N.</strong>
+                <div class="estrelas">★★★★★</div>
+            </div>
+
+            <div class="depoimento">
+                <div class="aspas">“</div>
+                <p>Profissional dedicada e muito detalhista. Minhas unhas ficaram lindas!</p>
+                <strong>— Edinalva M.</strong>
+                <div class="estrelas">★★★★★</div>
+            </div>
+
+            <div class="depoimento">
+                <div class="aspas">“</div>
+                <p>Ambiente maravilhoso e atendimento excelente. Super recomendo!</p>
+                <strong>— Beatriz M.</strong>
+                <div class="estrelas">★★★★★</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agendamento -->
+    <section class="agendamento" id="agendamento">
+        <h2>Agende seu Horário</h2>
+        <p>Escolha o serviço, o dia e o horário desejado abaixo:</p>
+
+        <form class="form-agendamento" onsubmit="enviarAgendamento(event)">
+            <div class="grupo-campo">
+                <label for="nome">Seu Nome:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="servico">Serviço Desejado:</label>
+                <select id="servico" required>
+                    <option value="" disabled selected>Selecione um serviço</option>
+                    <option value="Manicure Tradicional">Manicure Tradicional</option>
+                    <option value="Esmaltação em Gel">Esmaltação em Gel</option>
+                    <option value="Alongamento">Alongamento</option>
+                    <option value="Nail Designer">Nail Designer</option>
+                    <option value="Pedicure">Pedicure</option>
+                    <option value="Spa dos Pés">Spa dos Pés</option>
+                    <option value="Design de Sobrancelhas">Design de Sobrancelhas</option>
+                </select>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="data">Data Desejada:</label>
+                <input type="date" id="data" required>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="horario">Horário Desejado:</label>
+                <select id="horario" required>
+                    <option value="" disabled selected>Selecione um horário</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:30">13:00</option>
+                    <option value="14:00">13:30</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                    <option value="18:00">18:00</option>
+                </select>
+            </div>
+
+            <button type="submit" class="botao-branco">📲 CONFIRMAR NO WHATSAPP</button>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer id="contato">
+        <div class="footer-container">
+            <div>
+                <div class="logo-footer">Studio Nails ♡</div>
+                <p>Realçando sua beleza até a ponta dos dedos!</p>
+            </div>
+
+            <div>
+                <h3>LINKS RÁPIDOS</h3>
+                <p><a href="#inicio">Início</a></p>
+                <p><a href="#sobre">Sobre Mim</a></p>
+                <p><a href="#servicos">Serviços</a></p>
+                <p><a href="#galeria">Galeria</a></p>
+            </div>
+
+            <div>
+                <h3>CONTATO</h3>
+                <p>📱 (81) 98986-7314</p>
+                <p>📷 @joycemary_nails</p>
+                <p>📍 Lagoa do Carro - PE</p>
+            </div>
+
+            <div>
+                <h3>HORÁRIO</h3>
+                <p>Segunda a Sexta:<br>9h às 19h</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 Joyce Mary Nails - Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        function enviarAgendamento(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const servico = document.getElementById('servico').value;
+            const dataInput = document.getElementById('data').value;
+            const horario = document.getElementById('horario').value;
+
+            const partesData = dataInput.split('-');
+            const dataFormatada = `${partesData[2]}/${partesData[1]}/${partesData[0]}`;
+
+            const mensagem = `Olá, Joyce! Meu nome é *${nome}*.\nGostaria de agendar um horário para *${servico}*.\n\n📅 *Data:* ${dataFormatada}\n⏰ *Horário:* ${horario}`;
+
+            const url = `https://wa.me/5581989867314?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+
+</html>
