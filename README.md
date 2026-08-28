@@ -672,7 +672,7 @@
             <div class="card">
                 <div class="servico-foto"><img src="designer.jpeg" alt="Designer de Sombrancelha"></div>
                 <h3>Designer de Sombrancelha</h3>
-                <p>Pés lindos, macios e bem cuidados.</p>
+                <p>Design ideal para valorizar o seu olhar.</p>
             </div>
 
             <div class="card">
@@ -692,9 +692,9 @@
         </div>
 
         <div class="fotos">
-            <div class="foto"><img src="trabalho1.jpeg" alt="Trabalho 3"></div>
+            <div class="foto"><img src="trabalho1.jpeg" alt="Trabalho 1"></div>
             <div class="foto"><img src="trabalho2.jpeg" alt="Trabalho 2"></div>
-            <div class="foto"><img src="trabalho3.jpeg" alt="Trabalho 1"></div>
+            <div class="foto"><img src="trabalho3.jpeg" alt="Trabalho 3"></div>
             <div class="foto"><img src="trabalho4.jpeg" alt="Trabalho 4"></div>
             <div class="foto"><img src="trabalho5.jpeg" alt="Trabalho 5"></div>
         </div>
@@ -789,8 +789,9 @@
                     <option value="11:30">11:30</option>
                     <option value="12:00">12:00</option>
                     <option value="12:30">12:30</option>
-                    <option value="13:30">13:00</option>
-                    <option value="14:00">13:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
                     <option value="14:30">14:30</option>
                     <option value="15:00">15:00</option>
                     <option value="15:30">15:30</option>
